@@ -1,6 +1,6 @@
 window.addEventListener('load',function(){
     setTimeout(function(){
-        document.getElementById("lodingPage").style.display = 'none';
+        document.getElementById("loadingPage").style.display = 'none';
         document.getElementById("mainPage").style.display = 'block';
-    },6500);
+    },6000);
 });
