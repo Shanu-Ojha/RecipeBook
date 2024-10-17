@@ -16,11 +16,11 @@
     animation-delay: 5s;
 }
 .title{
-    font-size: 3.5rem;
+    font-size: 4rem;
     animation: easeIn 2s ease-in forwards;
 }
 .tagline {
-    font-size: 2rem;
+    font-size: 2.5rem;
     opacity: 0;
     animation: easeIn 2s ease-in forwards;
     animation-delay: 2s;
