@@ -1,9 +1,107 @@
-*{
+* {
     margin: 0;
     padding: 0;
+    text-decoration: none;
 }
-#home{
-    background: url('Image/main.png');
-    background-position: center;
+
+section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .navBar {
+    width: 100%;
+    background: rgba(183, 95, 13, 0);
+    font-size: 1.52rem;
+    display: flex;
+    padding: 10px 0;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+}
+
+main .navBar img {
+    width: 22%;
+    padding-left: 50px;
+}
+
+main .navBar .nav {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    padding-right: 50px;
+}
+
+.navBar .nav a {
+    color: #fff;
+}
+
+/* From Uiverse.io by gharsh11032000 */
+.button {
+    font-size: 1.2rem;
+    position: relative;
+    width: 150px;
+    height: 40px;
+    background-color: rgb(183, 95, 13);
+    display: flex;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    flex-direction: column;
+    justify-content: center;
+    border: none;
+    padding: 12px;
+    gap: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    left: -4px;
+    top: -1px;
+    margin: auto;
+    width: 158px;
+    height: 48px;
+    border-radius: 10px;
+    background: linear-gradient(-45deg, #000000 0%, #ecc166 100%);
+    z-index: -10;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.button::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(-45deg, #000000 0%, #ecc166 100%);
+    transform: translate3d(0, 0, 0) scale(0.95);
+    filter: blur(20px);
+}
+
+.button:hover::after {
+    filter: blur(30px);
+}
+
+.button:hover::before {
+    transform: rotate(-180deg);
+}
+
+.button:active::before {
+    scale: 0.7;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background: url('Image/mainImg.png');
     background-size: cover;
+    background-repeat: no-repeat;
 }
