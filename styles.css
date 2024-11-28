@@ -1,19 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Rampart+One&family=Delius+Swash+Caps&family=DynaPuff&display=swap');
-
 * {
     margin: 0;
     padding: 0;
-    text-decoration: none;
+    box-sizing: border-box;
 }
-
-section {
+html {
+    scroll-behavior: smooth;
+}
+body {
     height: 100vh;
-    display: flex;
-    margin: 20px;
-    padding: 20px;
+    background-image: url(Image/mainImg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
-
+section {
+    font-family: "Space Mono", monospace;
+    min-height: calc(100vh-80px);
+    padding: 20px 9%;
+    box-sizing: border-box;
+}
 main .navBar {
+    position: sticky;
+    top: 0;
     width: 100%;
     background: rgba(183, 95, 13, 0);
     font-size: 1.52rem;
@@ -21,17 +29,14 @@ main .navBar {
     padding: 10px 0;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
-    top: 0;
     transition: background-color 0.3s ease;
     z-index: 1000;
 }
-
 main .navBar img {
-    width: 22%;
+    width: 35%;
     padding-left: 50px;
+    filter:drop-shadow(9px 0px 20px #000);
 }
-
 main .navBar .nav {
     font-family: "DynaPuff", system-ui;
     display: flex;
@@ -39,11 +44,9 @@ main .navBar .nav {
     align-items: center;
     padding-right: 50px;
 }
-
 .navBar .nav a {
     color: #fff;
 }
-
 .button {
     font-size: 1.2rem;
     position: relative;
@@ -99,24 +102,15 @@ main .navBar .nav {
 .button:active::before {
     scale: 0.7;
 }
-
-body {
-    width: 100%;
-    height: 100vh;
-    background: url('Image/mainImg.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
 #home {
-    margin-top: 100px;
+    margin: 20px;
     width: 50%;
     padding: 20px;
     display: flex;
-    position: fixed;
-    right: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
 }
-
 #home .text h1 {
     padding: 20px;
     color: rgb(108, 4, 4);
@@ -125,15 +119,13 @@ body {
     font-style: italic;
     text-decoration: underline;
 }
-
 #home .text span h2 {
-    padding: 0;
+    padding-left: 20px;
     color: rgb(125, 11, 11);
     font-size: 3.5rem;
     rotate: -5deg;
     font-family: "Rampart One", sans-serif;
 }
-
 #home .text p {
     margin-top: 30px;
     padding: 10px;
@@ -141,7 +133,6 @@ body {
     font-size: 1.5rem;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-
 .btn-conteiner {
     display: flex;
     padding: 50px;
@@ -247,4 +238,9 @@ body {
         outline: 0.2em solid var(--color-background);
         outline-offset: 0;
     }
+}
+#mainPage {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
 }
