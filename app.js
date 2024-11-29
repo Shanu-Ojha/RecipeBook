@@ -7,8 +7,8 @@ window.addEventListener('scroll', () => {
     }
 });
 
-let currentRecipeCount = 6; // Initialize with 6 recipes
-let allRecipes = []; // To store all fetched recipes
+let currentRecipeCount = 6;
+let allRecipes = [];
 
 document.getElementById('search-btn').addEventListener('click', async () => {
     const ingredientInput = document.getElementById('ingredient-input').value.trim();
@@ -32,8 +32,8 @@ document.getElementById('search-btn').addEventListener('click', async () => {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        allRecipes = data.results; // Store all recipes
-        currentRecipeCount = 6; // Reset count
+        allRecipes = data.results;
+        currentRecipeCount = 6;
         displayRecipes(allRecipes.slice(0, currentRecipeCount));
     } catch (error) {
         console.error('Error fetching recipes:', error);
@@ -67,7 +67,7 @@ function displayRecipes(recipes) {
 
 document.getElementById('show-more-btn').addEventListener('click', () => {
     currentRecipeCount += 6; // Increment by 6
-    displayRecipes(allRecipes.slice(0, currentRecipeCount)); // Display updated list
+    displayRecipes(allRecipes.slice(0, currentRecipeCount));
 });
 
 
