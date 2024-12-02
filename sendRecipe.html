@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="Image/icon.png" type="image/x-icon">
+    <title>Send Recipe &#127860 | Cuisine Voyages</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: #495057;
+            outline: none;
+        }
+
+        .button-container {
+            text-align: center;
+        }
+
+        button {
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            background: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #c0392b;
+        }
+
+        .back-link {
+            display: block;
+            margin: 1rem auto;
+            text-align: center;
+            color: #e74c3c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Share Your Recipe</h1>
+        <form action="https://formspree.io/f/xdkoyaep" method="POST">
+            <div>
+                <label for="recipe-name">Recipe Name:</label>
+                <input type="text" id="recipe-name" name="Recipe Name" placeholder="Enter the recipe name" required>
+            </div>
+
+            <div>
+                <label for="author-name">Your Name:</label>
+                <input type="text" id="author-name" name="Author Name" placeholder="Enter your name" required>
+            </div>
+
+            <div>
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="Author Email" placeholder="Enter your email" required>
+            </div>
+
+            <div>
+                <label for="cuisine-type">Cuisine Type:</label>
+                <select id="cuisine-type" name="Cuisine Type" required>
+                    <option value="">Select Cuisine</option>
+                    <option value="italian">Italian</option>
+                    <option value="indian">Indian</option>
+                    <option value="mexican">Mexican</option>
+                    <option value="chinese">Chinese</option>
+                    <option value="japanese">Japanese</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="ingredients">Ingredients (comma-separated):</label>
+                <textarea id="ingredients" name="Ingredients" placeholder="List all ingredients here..." rows="4" required></textarea>
+            </div>
+
+            <div>
+                <label for="instructions">Cooking Instructions:</label>
+                <textarea id="instructions" name="Instructions" placeholder="Describe the steps to prepare your dish..." rows="6" required></textarea>
+            </div>
+
+            <div class="button-container">
+                <button type="submit">Submit Recipe</button>
+            </div>
+        </form>
+        <a href="index.html" class="back-link">&larr; Back to Home</a>
+    </div>
+</body>
+
+</html>
