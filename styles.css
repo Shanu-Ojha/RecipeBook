@@ -261,9 +261,9 @@ section {
     padding-top: 100px;
     max-width: 100%;
     min-height: 100%;
-    background: linear-gradient(120deg, #AD7954, #D09B69, #c5ac49, #dbc08e);
+    background: linear-gradient(120deg, #B68763, #CBA97C, #d0b27e, #e9ca95);
     background-size: 1000%;
-    animation: gradientBG 15s ease infinite;
+    animation: gradientBG 5s ease infinite;
     color: #333;
 }
 
