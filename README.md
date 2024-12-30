@@ -1,7 +1,7 @@
 <h1>Cuisine Voyages ☕️</h1>
 
 <p>Cuisine Voyages is a dynamic web application designed for food enthusiasts to explore a variety of recipes from around the globe. Whether you are a home cook or a professional chef, Cuisine Voyages helps you discover, filter, and learn about dishes tailored to your preferences.</p>
-
+<img src="Image/Screenshot 2024-12-30 191604.png" alt="Cuisine Voyages Preview" style="max-width: 100%; height: auto; margin: 20px 0;">
 <h2>Features</h2>
 <ul>
     <li><strong>Recipe Search</strong>: Find recipes by entering dish names or ingredients.</li>
