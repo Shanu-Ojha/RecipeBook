@@ -12,7 +12,7 @@
 </ul>
 
 <h2>Demo</h2>
-<p>Check out the live demo: <a href="https://shanu-ojha.github.io/RecipeBook/">Cuisine Voyages</a></p>
+<p>Check out the live demo: <a href="https://recipe-book-phi-sandy.vercel.app/">Cuisine Voyages</a></p>
 
 <h2>Technologies Used</h2>
 <ul>
