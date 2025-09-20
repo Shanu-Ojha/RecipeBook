@@ -12,10 +12,12 @@ html {
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     background-image: url(Image/mainImg.png);
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 section {
@@ -41,9 +43,18 @@ section {
 }
 
 .navBar img {
-    width: 35%;
+    width: 18vw;
+    min-width: 80px;
+    max-width: 150px;
     padding-left: 50px;
     filter: drop-shadow(9px 0px 20px #000);
+}
+
+@media (max-width: 600px) {
+    .navBar img {
+        width: 32vw;
+        padding-left: 20px;
+    }
 }
 
 .navBar .nav {
@@ -56,6 +67,41 @@ section {
 
 .navBar .nav a {
     color: #fff;
+    transition: color 0.3s ease;
+}
+
+.navBar .nav a:hover {
+    color: #d09b69;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
 }
 
 .button {
@@ -123,6 +169,7 @@ section {
     justify-content: center;
     align-items: flex-end;
     padding-top: 110px;
+    min-height: 100vh;
 }
 
 #home .text h1 {
@@ -132,6 +179,7 @@ section {
     font-family: "Delius Swash Caps", cursive;
     font-style: italic;
     text-decoration: underline;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 #home .text span h2 {
@@ -140,6 +188,7 @@ section {
     font-size: 3.5rem;
     rotate: -5deg;
     font-family: "Rampart One", sans-serif;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
 }
 
 #home .text p {
@@ -148,6 +197,8 @@ section {
     color: rgba(135, 3, 3, 0.95);
     font-size: 1.5rem;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    line-height: 1.6;
 }
 
 .btn-conteiner {
@@ -291,47 +342,62 @@ section {
     justify-content: center;
     gap: 20px;
     margin-bottom: 30px;
+    flex-wrap: wrap;
+    padding: 0 20px;
 }
 
 input,
 select,
 button {
     width: 250px;
-    padding: 10px;
+    padding: 12px 16px;
     border: none;
-    border-radius: 20px;
+    border-radius: 25px;
     font-size: 1rem;
     outline: none;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
 }
 
 input:focus,
 select:focus{
-    transform: scale(1.1);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 button {
-    background: brown;
+    background: linear-gradient(135deg, #8B4D32, #A0522D);
     color: white;
     cursor: pointer;
     font-weight: bold;
+    border: 2px solid transparent;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #A0522D, #8B4D32);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 #recipe-results {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 0 20px;
+    margin-bottom: 30px;
 }
 
 .recipe-card {
     position: relative;
-    padding: 20px;
+    padding: 0;
     background: white;
     border-radius: 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .recipe-card:hover {
@@ -341,26 +407,40 @@ button {
 
 .recipe-card img {
     width: 100%;
-    border-radius: 10px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0;
 }
 
 .recipe-card h3 {
-    font-size: 1.5rem;
-    margin: 15px 0;
+    font-size: 1.3rem;
+    margin: 15px 20px 10px;
+    color: #333;
+    line-height: 1.4;
+    min-height: 2.8rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .recipe-card button {
-    background: brown;
+    background: linear-gradient(135deg, #8B4D32, #A0522D);
     border: none;
-    padding: 10px;
-    border-radius: 10px;
+    padding: 12px 20px;
+    border-radius: 0 0 20px 20px;
     color: white;
     font-weight: bold;
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
+    margin-top: auto;
+    width: 100%;
+    font-size: 1rem;
 }
 
 .recipe-card button:hover {
-    background: rgb(194, 84, 36);
+    background: linear-gradient(135deg, #A0522D, #8B4D32);
+    transform: translateY(-2px);
 }
 
 .theme-toggle {
@@ -387,23 +467,75 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8);
     z-index: 1000;
     overflow: auto;
+    padding: 20px;
 }
 
 .modal-content {
     position: relative;
-    margin: 5% auto;
-    padding: 20px;
+    margin: 2% auto;
+    padding: 30px;
     background: white;
-    border-radius: 10px;
-    max-width: 600px;
-    max-height: 80%;
+    border-radius: 20px;
+    max-width: 700px;
+    max-height: 90vh;
     overflow-y: auto;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
-.modal-content .close-btn:hover{
+
+.modal-content .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #999;
     cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 1001;
+}
+
+.modal-content .close-btn:hover {
+    color: #333;
+    cursor: pointer;
+}
+
+.modal-content h2 {
+    color: #8B4D32;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.modal-content img {
+    width: 100%;
+    max-width: 400px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.modal-content h3 {
+    color: #8B4D32;
+    margin: 20px 0 10px;
+    font-size: 1.5rem;
+}
+
+.modal-content ul {
+    margin: 10px 0 20px;
+    padding-left: 20px;
+}
+
+.modal-content li {
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+.modal-content p {
+    line-height: 1.6;
+    margin: 10px 0;
 }
 #show-more-btn{
     width: 100%;
@@ -411,74 +543,105 @@ button {
 
 /* About Us Section */
 #aboutUs {
-    height: 100vh;
+    min-height: 100vh;
     text-align: center;
-    padding: 50px 20px;
-    color: brown;
+    padding: 80px 20px;
+    color: #8B4D32;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
 }
 
 #aboutUs h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+    font-size: 3rem;
+    margin-bottom: 50px;
+    color: #8B4D32;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .team-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .team-member {
     background: white;
     color: #333;
-    border-radius: 10px;
-    padding: 20px;
-    max-width: 300px;
+    border-radius: 20px;
+    padding: 30px 20px;
     text-align: center;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-member::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #8B4D32, #A0522D, #8B4D32);
 }
 
 .team-member:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(-15px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
 }
 
 .team-member img {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    object-fit: cover;
+    border: 4px solid #8B4D32;
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover img {
+    transform: scale(1.1);
 }
 
 .team-member h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: #8B4D32;
 }
 
 .team-member p {
     font-size: 1rem;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #666;
 }
 
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
 }
 
 .social-links a {
-    font-size: 1.5rem;
-    color: #555;
-    transition: color 0.3s ease;
+    font-size: 1.8rem;
+    color: #8B4D32;
+    transition: all 0.3s ease;
+    padding: 10px;
+    border-radius: 50%;
+    background: rgba(139, 77, 50, 0.1);
 }
 
 .social-links a:hover {
-    color: #d09b69;
+    color: white;
+    background: #8B4D32;
+    transform: translateY(-3px);
 }
 
 /* Footer Styles */
@@ -497,4 +660,247 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .navBar .nav {
+        gap: 30px;
+        padding-right: 30px;
+    }
+    
+    .navBar img {
+        padding-left: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    
+    .navBar .nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(139, 77, 50, 0.95);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        transition: right 0.3s ease;
+        padding: 0;
+    }
+    
+    .navBar .nav.active {
+        right: 0;
+    }
+    
+    .navBar .nav a {
+        font-size: 1.5rem;
+        padding: 15px 30px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .navBar .nav a:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: scale(1.05);
+    }
+    
+    .navBar img {
+        width: 50%;
+        padding-left: 20px;
+    }
+    
+    #home {
+        width: 90%;
+        margin: 10px;
+        padding: 10px;
+        align-items: center;
+        text-align: center;
+    }
+    
+    #home .text h1 {
+        font-size: 1.4rem;
+        padding: 10px;
+    }
+    
+    #home .text span h2 {
+        font-size: 2.5rem;
+        padding-left: 10px;
+    }
+    
+    #home .text p {
+        font-size: 1.2rem;
+        padding: 5px;
+    }
+    
+    .btn-conteiner {
+        padding: 30px 20px;
+    }
+    
+    .btn-content {
+        font-size: 24px;
+        padding: 8px 25px;
+    }
+    
+    #mainPage h1 {
+        font-size: 2rem;
+        padding: 0 20px;
+    }
+    
+    #controls {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    input, select, button {
+        width: 90%;
+        max-width: 400px;
+    }
+    
+    #recipe-results {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 10px;
+    }
+    
+    .recipe-card {
+        margin: 0 auto;
+        max-width: 400px;
+    }
+    
+    #aboutUs h1 {
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+    }
+    
+    .team-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 10px;
+    }
+    
+    .team-member {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .modal-content {
+        margin: 5% auto;
+        padding: 20px;
+        max-width: 95%;
+    }
+    
+    .modal-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .modal-content img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navBar img {
+        width: 60%;
+        padding-left: 15px;
+    }
+    
+    #home .text h1 {
+        font-size: 1.2rem;
+    }
+    
+    #home .text span h2 {
+        font-size: 2rem;
+    }
+    
+    #home .text p {
+        font-size: 1rem;
+    }
+    
+    .btn-content {
+        font-size: 20px;
+        padding: 6px 20px;
+    }
+    
+    #mainPage h1 {
+        font-size: 1.6rem;
+    }
+    
+    input, select, button {
+        width: 95%;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .recipe-card h3 {
+        font-size: 1.1rem;
+        margin: 10px 15px 8px;
+    }
+    
+    .recipe-card button {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+    
+    #aboutUs h1 {
+        font-size: 1.8rem;
+    }
+    
+    .team-member {
+        padding: 20px 15px;
+    }
+    
+    .team-member img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .team-member h2 {
+        font-size: 1.4rem;
+    }
+    
+    .team-member p {
+        font-size: 0.9rem;
+    }
+    
+    .social-links a {
+        font-size: 1.5rem;
+        padding: 8px;
+    }
+    
+    .modal-content {
+        padding: 15px;
+    }
+    
+    .modal-content h2 {
+        font-size: 1.3rem;
+    }
+    
+    .modal-content img {
+        height: 150px;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 600px) and (orientation: landscape) {
+    #home {
+        padding-top: 80px;
+        min-height: auto;
+    }
+    
+    #aboutUs {
+        min-height: auto;
+        padding: 40px 20px;
+    }
+    
+    .team-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
 }
